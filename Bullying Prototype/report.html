@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report an Incident</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Report an Incident</h1>
+        <form id="reportForm" onsubmit="return validateForm()">
+            <label for="name">Name (Optional):</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name">
+
+            <label for="location">Location (Optional):</label>
+            <input type="text" id="location" name="location" placeholder="Enter location">
+
+            <label for="details">Incident Details:</label>
+            <textarea id="details" name="details" placeholder="Describe the incident" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script>
+        function validateForm() {
+            const details = document.getElementById('details').value;
+            if (details.trim() === '') {
+                alert('Incident details are required!');
+                return false;
+            }
+            alert('Your report has been submitted successfully!');
+            document.getElementById('reportForm').reset();
+            return false; // Prevent actual form submission
+        }
+    </script>
+</body>
+</html>
